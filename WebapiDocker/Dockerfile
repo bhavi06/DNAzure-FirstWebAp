@@ -10,8 +10,8 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["WebapiDocker/WebapiDocker.csproj", "WebapiDocker/"]
-RUN dotnet restore "WebapiDocker/WebapiDocker.csproj"
+COPY ["WebapiDocker.csproj", "WebapiDocker/"]
+RUN dotnet restore "WebapiDocker.csproj"
 COPY . .
 WORKDIR "/src/WebapiDocker"
 RUN dotnet build "WebapiDocker.csproj" -c Release -o /app/build
